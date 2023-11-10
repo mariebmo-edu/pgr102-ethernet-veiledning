@@ -26,4 +26,4 @@
 - [x] Gå gjennom alle land i arrayet
   - [x] Finn land som har samme navn
     - [x] Skrive hovedstad og region
-- [ ] Print 10 tilfeldige land.
+- [x] Print 10 tilfeldige land.

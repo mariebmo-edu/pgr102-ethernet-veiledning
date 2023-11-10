@@ -28,7 +28,7 @@
       value="Vis info om landet"
     /><br /><br />
 
-    <input type="button" value="Vis 10 tilfeldige land" />
+    <input type="button" id="show-random-btn" value="Vis 10 tilfeldige land" />
     <div id="output-div"></div>
 
     <script>
@@ -455,6 +455,8 @@
       var showByNameBtn = document.getElementById('show-name-btn');
       var nameInput = document.getElementById('name-input');
 
+      var showRandomBtn = document.getElementById('show-random-btn');
+
       var output = document.getElementById('output-div');
 
       function showAll() {
@@ -524,8 +526,37 @@
           if (element.name.toLowerCase() == name.toLowerCase()) {
             var outputTxt = `<p>${element.name}</p><p>${element.capital}</p><p>${element.region}</p>`;
 
+            /* ALTERNATIV 
+			var outputTxt = '<p>' + element.name + '</p>' + 
+			'<p>' + element.capital + '</p>' +
+			'<p>' + element.region + '</p>';
+			*/
+
+            /* ALTERNATIV
+			var outputTxt = 'p' + element.name + '</p>' +
+			outputTxt += '<p>' + element.capital + '</p>';
+			outputTxt += '<p>' + element.region + '</p>';
+			*/
+
             output.innerHTML = outputTxt;
           }
+        }
+      }
+
+      function showRandomCountries() {
+        var randomAmount = 10;
+
+        output.innerHTML = '';
+
+        //kjører en for-løkke 10 ganger for å få 10 tilfeldige land
+        for (var i = 0; i < randomAmount; i++) {
+          // Math.random er en verdi mellom 0 og 1. Ganger den med størrelsen på arrayet for å få en verdi mellom 0 og størrelsen på arrayet. Math.floor runder ned til nærmeste heltall.
+          var randomNum = Math.floor(Math.random() * countryArray.length);
+
+          //henter ut element fra arrayet på posisjonen til det tilfeldige tallet.
+          var element = countryArray[randomNum];
+
+          output.innerHTML += '<p>' + element.name + '</p>';
         }
       }
 
@@ -535,6 +566,8 @@
       showRegionBtn.onclick = showByRegion;
 
       showByNameBtn.onclick = showByName;
+
+      showRandomBtn.onclick = showRandomCountries;
     </script>
   </body>
 </html>
