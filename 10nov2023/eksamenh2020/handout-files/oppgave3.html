@@ -1,35 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Oppgave 3. Matlageret (25%)</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Oppgave 3. Matlageret (25%)</title>
+  </head>
+  <body>
+    <h3>Matlageret</h3>
+    <label>Produktnavn</label>
+    <input type="text" id="product-name" /><br />
+    <label>Antall på lager</label>
+    <input type="text" id="pruduct-amount" /><br />
+    <input
+      type="button"
+      id="add-product-btn"
+      value="Legg til produkt i array"
+    />
+    <input
+      type="button"
+      id="show-products-btn"
+      value="Vis produkter du har lagt til"
+    />
+    <div id="output"></div>
 
-	<h3>Matlageret</h3>
-	<label>Produktnavn</label>
-	<input type="text"><br>
-	<label>Antall på lager</label>
-	<input type="text"><br>
-	<input type="button" value="Legg til produkt i array">
-	<input type="button" value="Vis produkter du har lagt til">
-	
-	<script>	
-		
-		/* Besvarelse legges til før og/eller etter funksjonen */
-		
-		function sortByAmount(a, b) {
-		  if (a.amount < b.amount) {
-			return 1;
-		  }
-		  if (a.amount > b.amount) {
-			return -1;
-		  }
-		  return 0;
-		}		
+    <script>
+      /* Besvarelse legges til før og/eller etter funksjonen */
 
-	</script>
-</body>
+      var productNameInput = document.getElementById('product-name');
+      var productAmountInput = document.getElementById('pruduct-amount');
+
+      var addProductBtn = document.getElementById('add-product-btn');
+      var showProductsBtn = document.getElementById('show-products-btn');
+
+      var output = document.getElementById('output');
+
+      // tar inn to produkter, sjekker om det første produktet skal komme før det andre produktet i sorteringen. Returnerer 1 hvis det skal komme først, -1 hvis det skal komme sist, og 0 hvis det ikke spiller noen rolle.
+      function sortByAmount(a, b) {
+        if (a.amount < b.amount) {
+          // hvis a skal komme først, så returnerer vi 1, hvis b skal komme først, så returnerer vi -1
+          return 1;
+        }
+        if (a.amount > b.amount) {
+          // hvis a skal komme sist, så returnerer vi -1, hvis b skal komme sist, så returnerer vi 1
+          return -1;
+        }
+        // hvis det ikke spiller noen rolle hvilken rekkefølge de kommer i, så returnerer vi 0
+        return 0;
+      }
+
+      // Dummy-data
+      var product1 = { productName: 'melk', amount: 10 };
+      var product2 = { productName: 'brød', amount: 5 };
+      var product3 = { productName: 'ost', amount: 2 };
+      var product4 = { productName: 'yoghurt', amount: 3 };
+      var product5 = { productName: 'egg', amount: 12 };
+      var products = [product1, product2, product3, product4, product5];
+
+      //legger til nytt produkt, eller oppdaterer produkt hvis det allerede eksisterer.
+      function addProduct() {
+        var productName = productNameInput.value;
+        var productAmount = parseInt(productAmountInput.value);
+
+        //hvis produktet allerede er i arrayet og antallet er et tall
+        if (productExists(productName)) {
+          if (!isNaN(productAmount)) {
+            for (var i = 0; i < products.length; i++) {
+              if (
+                //finner produktet i arrayet som har samme navn som det vi har skrevet inn
+                products[i].productName.toLowerCase() ==
+                productName.toLowerCase()
+              ) {
+                //oppdaterer antallet på produktet
+                products[i].amount += productAmount;
+              }
+            }
+          }
+        } else {
+          // hvis det ikke er gyldig input, så setter vi antallet til 0
+          if (isNaN(productAmount)) {
+            productAmount = 0;
+          }
+
+          // lager nytt produkt og legger det til i arrayet
+          var product = { productName: productName, amount: productAmount };
+          products.push(product);
+        }
+
+        // oppdaterer output med de nye endringene
+        showAllProducts();
+      }
+
+      //tar inn et produkt-navn og sjekker om det allerede finnes i arrayet. Returnerer true hvis det finnes, false hvis ikke.
+      function productExists(name) {
+        for (var i = 0; i < products.length; i++) {
+          if (products[i].productName == name) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      //skriver ut alle produktene i arrayet
+      function showAllProducts() {
+        output.innerHTML = '';
+
+        //sorterer produktene etter antall
+        products.sort(sortByAmount);
+
+        for (var i = 0; i < products.length; i++) {
+          output.innerHTML +=
+            products[i].productName + ' ' + products[i].amount + '<br>';
+        }
+      }
+
+      addProductBtn.onclick = addProduct;
+      showProductsBtn.onclick = showAllProducts;
+    </script>
+  </body>
 </html>
-
-

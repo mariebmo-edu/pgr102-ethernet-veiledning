@@ -31,3 +31,19 @@
 ---
 
 # OPPGAVE 3
+
+## DEL 1
+
+Den tar inn to objekter (a og b). Den sjekker først om mengden (amount) av a er mindre enn b, hvis den er det sender den 1 tilbake.
+
+Hvis den ikke returnerer, så sjekker den om a er større en b, hvis den er det returnerer den -1
+
+Hvis ingen av det over returnerer, er det likt, og den returnerer 0.
+
+## DEL 2
+
+- [x] Lage et produkt-objekt (productName, amount)
+- [x] Lage en produkt-liste / array
+- [x] Legge til nytt produkt i arrayet
+- [x] Se alle produkter som er lagt til
+- [x] Bruke sortByAmount på produktene.
