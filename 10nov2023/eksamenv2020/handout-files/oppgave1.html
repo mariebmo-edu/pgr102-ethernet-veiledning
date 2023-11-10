@@ -73,13 +73,15 @@
 
         //hvis det ikke er et gyldig tall (NotANuber) så skriver vi ut en feilmelding
         if (isNaN(juiceAmount)) {
-          statusP.innerHTML = 'Status nå: Ugyldig input';
+          statusP.innerHTML = 'Status nå: Skriv inn et gyldig tall';
         } else {
           // hvis det er et gyldig tall, så legger vi til juice-nivået
           currentJuiceLevel += juiceAmount;
 
+          statusP.innerHTML = 'Status nå: OK';
+
           //sjekker vi om juice-nivået er over 350, og hvis det er det, så setter vi det til 350
-          if (currentJuiceLevel > 350) {
+          if (currentJuiceLevel >= 350) {
             currentJuiceLevel = 350;
             //og sier at glasset er fullt
             statusP.innerHTML = 'Status nå: Glasset er fullt';
@@ -91,7 +93,30 @@
         }
       }
 
+      function drinkJuice() {
+        var juiceAmount = parseInt(juiceAmountText.value);
+
+        if (isNaN(juiceAmount)) {
+          statusP.innerHTML = 'Status nå: Skriv inn et gyldig tall';
+        } else {
+          currentJuiceLevel -= juiceAmount;
+
+          statusP.innerHTML = 'Status nå: OK';
+
+          if (currentJuiceLevel <= 0) {
+            currentJuiceLevel = 0;
+            statusP.innerHTML = 'Status nå: Glasset er tomt';
+          }
+
+          juiceLevelSpan.innerHTML = currentJuiceLevel;
+          juiceDiv.style.height = currentJuiceLevel + 'px';
+        }
+      }
+
+      //funksjon for å drikke juice
+
       addBtn.onclick = addJuice;
+      drinkBtn.onclick = drinkJuice;
     </script>
   </body>
 </html>
