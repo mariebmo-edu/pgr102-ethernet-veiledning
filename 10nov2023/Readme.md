@@ -1,14 +1,8 @@
 ## PLAN FOR DAGEN
 
-- [ ] oppbygging av html + js
-- [ ] hva er en variabel
-  - [ ] string
-  - [ ] int
-  - [ ] array
-  - [ ] dictionary
-- [ ] hva er en løkke
-  - [ ] forløkke
-  - [ ] while-løkke
-- [ ] hva er en funksjon
-  - [ ] parametre
-  - [ ] return-statement
+- [ ] Gå gjennom eksamen fra h2020
+  - [x] Oppgave 1
+  - [x] Oppgave 2
+  - [ ] Oppgave 3
+
+Vi jobber i eksamenh2020 > handoutfiles. Hver oppgave er i egen html-fil som har samme navn som oppgavenummeret.
