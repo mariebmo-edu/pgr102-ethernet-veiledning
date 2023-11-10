@@ -63,6 +63,35 @@
       /* Glass */
       var juiceLevelSpan = document.getElementById('juice-level-span');
       var juiceDiv = document.getElementById('juice-div');
+
+      var currentJuiceLevel = 50;
+
+      //funksjon for å legge til juice
+      function addJuice() {
+        //henter inn input fra brukeren, prøver å gjøre om til tall
+        var juiceAmount = parseInt(juiceAmountText.value);
+
+        //hvis det ikke er et gyldig tall (NotANuber) så skriver vi ut en feilmelding
+        if (isNaN(juiceAmount)) {
+          statusP.innerHTML = 'Status nå: Ugyldig input';
+        } else {
+          // hvis det er et gyldig tall, så legger vi til juice-nivået
+          currentJuiceLevel += juiceAmount;
+
+          //sjekker vi om juice-nivået er over 350, og hvis det er det, så setter vi det til 350
+          if (currentJuiceLevel > 350) {
+            currentJuiceLevel = 350;
+            //og sier at glasset er fullt
+            statusP.innerHTML = 'Status nå: Glasset er fullt';
+          }
+
+          //oppdaterer juice-nivået
+          juiceLevelSpan.innerHTML = currentJuiceLevel;
+          juiceDiv.style.height = currentJuiceLevel + 'px';
+        }
+      }
+
+      addBtn.onclick = addJuice;
     </script>
   </body>
 </html>
