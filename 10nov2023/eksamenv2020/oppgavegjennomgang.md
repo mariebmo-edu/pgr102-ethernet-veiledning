@@ -19,8 +19,8 @@
 
 - [x] Gå gjennom alle landene i arrayet
   - [x] Printe ut hver land i arrayet
-- [ ] Gå gjennom alle land i arrayet - baklengs
-  - [ ] Printe ut hvert land i arrayet
+- [x] Gå gjennom alle land i arrayet - baklengs
+  - [x] Printe ut hvert land i arrayet
 - [ ] Gå gjennom alle land i arrayet
   - [ ] Print ut hvert land med samme region som input-felt
 - [ ] Gå gjennom alle land i arrayet
