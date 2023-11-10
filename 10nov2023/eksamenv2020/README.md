@@ -27,3 +27,7 @@
   - [x] Finn land som har samme navn
     - [x] Skrive hovedstad og region
 - [x] Print 10 tilfeldige land.
+
+---
+
+# OPPGAVE 3
