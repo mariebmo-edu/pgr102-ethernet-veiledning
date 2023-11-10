@@ -23,7 +23,7 @@
   - [x] Printe ut hvert land i arrayet
 - [x] Gå gjennom alle land i arrayet
   - [x] Print ut hvert land med samme region som input-felt
-- [ ] Gå gjennom alle land i arrayet
-  - [ ] Finn land som har samme navn
-    - [ ] Skrive hovedstad og region
+- [x] Gå gjennom alle land i arrayet
+  - [x] Finn land som har samme navn
+    - [x] Skrive hovedstad og region
 - [ ] Print 10 tilfeldige land.

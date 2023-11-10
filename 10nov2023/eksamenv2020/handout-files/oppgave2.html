@@ -21,8 +21,12 @@
     /><br /><br />
 
     <label>Land</label>
-    <input type="text" placeholder="Skriv navn på et land" />
-    <input type="button" value="Vis info om landet" /><br /><br />
+    <input type="text" id="name-input" placeholder="Skriv navn på et land" />
+    <input
+      type="button"
+      id="show-name-btn"
+      value="Vis info om landet"
+    /><br /><br />
 
     <input type="button" value="Vis 10 tilfeldige land" />
     <div id="output-div"></div>
@@ -448,6 +452,9 @@
       var showRegionBtn = document.getElementById('show-region-btn');
       var regionInput = document.getElementById('region-input');
 
+      var showByNameBtn = document.getElementById('show-name-btn');
+      var nameInput = document.getElementById('name-input');
+
       var output = document.getElementById('output-div');
 
       function showAll() {
@@ -506,10 +513,28 @@
         }
       }
 
+      function showByName() {
+        output.innerHTML = '';
+
+        var name = nameInput.value;
+
+        for (var i = 0; i < countryArray.length; i++) {
+          var element = countryArray[i];
+
+          if (element.name.toLowerCase() == name.toLowerCase()) {
+            var outputTxt = `<p>${element.name}</p><p>${element.capital}</p><p>${element.region}</p>`;
+
+            output.innerHTML = outputTxt;
+          }
+        }
+      }
+
       showAllBtn.onclick = showAll;
       showAllReverseBtn.onclick = showAllReverse;
 
       showRegionBtn.onclick = showByRegion;
+
+      showByNameBtn.onclick = showByName;
     </script>
   </body>
 </html>
