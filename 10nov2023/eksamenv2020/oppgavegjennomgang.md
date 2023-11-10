@@ -21,8 +21,8 @@
   - [x] Printe ut hver land i arrayet
 - [x] Gå gjennom alle land i arrayet - baklengs
   - [x] Printe ut hvert land i arrayet
-- [ ] Gå gjennom alle land i arrayet
-  - [ ] Print ut hvert land med samme region som input-felt
+- [x] Gå gjennom alle land i arrayet
+  - [x] Print ut hvert land med samme region som input-felt
 - [ ] Gå gjennom alle land i arrayet
   - [ ] Finn land som har samme navn
     - [ ] Skrive hovedstad og region

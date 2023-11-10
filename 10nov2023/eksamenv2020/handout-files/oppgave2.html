@@ -446,7 +446,7 @@
       var showAllReverseBtn = document.getElementById('show-all-reverse-btn');
 
       var showRegionBtn = document.getElementById('show-region-btn');
-      var regionInput = document.getElementById('redion-input');
+      var regionInput = document.getElementById('region-input');
 
       var output = document.getElementById('output-div');
 
@@ -491,8 +491,25 @@
       // i = 0. 0 >= 0 -> KJØRER LØKKA, minusser på 1 til i -> i == -1
       // i = -1. -1 >= 0 -> KJØRER IKKE LØKKA, avslutter løkka
 
+      function showByRegion() {
+        output.innerHTML = '';
+
+        var region = regionInput.value;
+
+        for (var i = 0; i < countryArray.length; i++) {
+          var element = countryArray[i];
+
+          //gjør om til lowercase for å la brukeren skrive inn med store eller små bokstaver. Sjekker om regionen brukeren skrev er lik regionen til elementet
+          if (element.region.toLowerCase() == region.toLowerCase()) {
+            output.innerHTML += '<p>' + element.name + '</p>';
+          }
+        }
+      }
+
       showAllBtn.onclick = showAll;
       showAllReverseBtn.onclick = showAllReverse;
+
+      showRegionBtn.onclick = showByRegion;
     </script>
   </body>
 </html>
