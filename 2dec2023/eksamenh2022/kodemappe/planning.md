@@ -1,20 +1,20 @@
 # Oppgave 1
-- [ ] Vise alle land med full informasjon
-    - [ ] Vise common name
-    - [ ] Flagg
-    - [ ] Generell info(?)
-- [ ] Vise alle land med subregion som bruker skriver inn
-    - [ ] Brukerinput med tekst
-    - [ ] Kun vise land med samme subregion som input
-    - [ ] case-uavhengig (altså ikke bry seg om store eller små bokstaver)
-    - [ ] kan akseptere sub-strings
-- [ ] Vise totalt antall innbyggere
-- [ ] Vise land med flest innbyggere
-    - [ ] må bruke forløkke
-    - [ ] må bruke if
-- [ ] Vise land med færrest innbyggere
-    - [ ] må bruke forløkke
-    - [ ] må bruke if
+- [x] Vise alle land med full informasjon
+    - [x] Vise common name
+    - [x] Flagg
+    - [x] Generell info(?)
+- [x] Vise alle land med subregion som bruker skriver inn
+    - [x] Brukerinput med tekst
+    - [x] Kun vise land med samme subregion som input
+    - [x] case-uavhengig (altså ikke bry seg om store eller små bokstaver)
+    - [x] kan akseptere sub-strings
+- [x] Vise totalt antall innbyggere
+- [x] Vise land med flest innbyggere
+    - [x] må bruke forløkke
+    - [x] må bruke if
+- [x] Vise land med færrest innbyggere
+    - [x] må bruke forløkke
+    - [x] må bruke if
 
 
 ## Step by step-løsning
@@ -44,14 +44,14 @@
             - [x] Vise totalt antall inbyggere i amerika
 
 ### Vise land med flest innbyggere
-- [ ] Bruker trykker på knapp
-    - [ ] Gå gjennom alle land
-        - [ ] Sjekk om landet man er "inne i" har flere innbyggere enn forrige land med flest
-            - [ ] Hvis ja - bytt ut landet med flest innbyggere
-            - [ ] Helt til slutt - vis landet med flest innbyggere
+- [x] Bruker trykker på knapp
+    - [x] Gå gjennom alle land
+        - [x] Sjekk om landet man er "inne i" har flere innbyggere enn forrige land med flest
+            - [x] Hvis ja - bytt ut landet med flest innbyggere
+            - [x] Helt til slutt - vis landet med flest innbyggere
 
 ### Vise land med færrest innbyggere
-- [ ] Bruker trykker på knapp
+- [x] Bruker trykker på knapp
     - [ ] Gå gjennom alle land
         - [ ] Sjekk om landet man er "inne i" har færre innbyggere enn forrige land med minst
             - [ ] Hvis ja - bytt ut landet med minst innbyggere
