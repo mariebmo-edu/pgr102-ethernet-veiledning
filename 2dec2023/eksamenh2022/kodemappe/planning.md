@@ -23,7 +23,7 @@
 - [x] Bruker trykker på en knapp
     - [x] Forløkke for å gå gjennom alle landene i arrayet
         - [x] Inne i forløkka, skal vi hente ut informasjon om landet
-        - [x]vise det på nettsiden.
+        - [x] vise det på nettsiden.
             - [x] Husk å clear input
 
 ### Vise alle land med subregion som bruker skriver inn

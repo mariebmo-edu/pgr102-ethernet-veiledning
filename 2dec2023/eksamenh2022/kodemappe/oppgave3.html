@@ -47,7 +47,13 @@
 
         var outputDiv = document.getElementById("output-div");
 
-        var figureArray = [];
+
+        var figure1 = {width:"100px", height:"100px", backgroundColor:"red", word:"Hei"};
+        var figure2 = {width:"200px", height:"200px", backgroundColor:"blue", word:"Hallo"};
+        var figure3 = {width:"300px", height:"300px", backgroundColor:"green", word:"Heisann"};
+
+
+        var figureArray = [figure1, figure2, figure3];
 
         // Funksjonen addFigureToArray har 4 parametere. De fire parameterne er for verdier som bruker taster inn på nettsiden
         function addFigureToArray(userWidth, userHeight, userBackgroundColor, userWord){
@@ -64,16 +70,31 @@
 
         // showNumberOfFigures skal skrive ut antall figurer som ligger i figureArray. Tallet skal oppdateres for hver gang legger til ny figur i arrayet.
         function showNumberOfFigures(){
+            numberOfFigures.innerHTML = `Antall figurer: ${figureArray.length}`;
 
         }
         
         // showAllFigures skal bruke en for-løkke for basert på arrayet figureArray skrive ut figurene
         function showAllFigures(){
+            for( var i = 0; i < figureArray.length; i++ ){
+                var figure = figureArray[i];
+                
+                outputDiv.innerHTML += `<div style="width:${figure.width};height:${figure.height};background:${figure.backgroundColor}">
+                    <p>${figure.word}</p> 
+                    </div>`
+            }
 
+            showNumberOfFigures();
         }
 
         // addFigure-funksjonen trenger å få tak i det bruker har tastet inn og bruke funksjonen addFigureToArray
-        function addFigure(){ 
+        function addFigure(){
+            var userWidth = widthTxt.value;
+            var userHeight = heightTxt.value;
+            var userBackgroundColor = backgroundColorTxt.value;
+            var userWord = wordTxt.value;
+
+            addFigureToArray(userWidth, userHeight, userBackgroundColor, userWord);
 
         }
 
