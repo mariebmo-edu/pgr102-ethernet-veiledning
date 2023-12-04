@@ -78,6 +78,61 @@
             ***
         */
 
+        var showAllBtn = document.getElementById("show-all-btn");
+
+        var subregionInput = document.getElementById("subregion-txt");
+        var subregionBtn = document.getElementById("show-by-subregion-btn");
+
+        var outputDiv = document.getElementById("output-div");
+
+        // var i = 0 <-- Sier hva vi starter på
+        // i < countriesAmericaArray.length <-- Sier hvor vi skal stoppe
+        // i++ <-- Sier hva vi skal øke med
+
+        function showAllCountries(){
+
+            outputDiv.innerHTML = "";
+
+            for(var i = 0; i < countriesAmericaArray.length; i++){
+                var country = countriesAmericaArray[i];
+
+                outputDiv.innerHTML += `<div>
+                    <h1>${country.name.common}</h1>
+                    <img src="${country.flag.png}">
+                    <p>Hovedstad: ${country.capital}</p>
+                    <p>Subregion: ${country.subregion}</p>
+                    <p>Antall innbyggere: ${country.population}</p>
+                    </div>`;
+            }
+        }
+
+        function showCountriesBySubregion(){
+            var inputText = subregionInput.value;
+
+            outputDiv.innerHTML = "";
+
+            if(inputText == ""){
+                outputDiv.innerHTML = "Oj, du må skrive inn noe!";
+            } else {
+                for(var i = 0; i < countriesAmericaArray.length; i++){
+                    var country = countriesAmericaArray[i];
+                    if(country.subregion.toLowerCase().includes(inputText.toLowerCase())){
+                        outputDiv.innerHTML += `<div>
+                            <h1>${country.name.common}</h1>
+                            <img src="${country.flag.png}">
+                            <p>Hovedstad: ${country.capital}</p>
+                            <p>Subregion: ${country.subregion}</p>
+                            <p>Antall innbyggere: ${country.population}</p>
+                            </div>`;
+                    }
+                }
+            }
+      
+        }
+
+        showAllBtn.onclick = showAllCountries;
+        subregionBtn.onclick = showCountriesBySubregion;
+
     </script>
     
 </body>
