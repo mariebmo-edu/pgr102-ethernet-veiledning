@@ -83,6 +83,12 @@
         var subregionInput = document.getElementById("subregion-txt");
         var subregionBtn = document.getElementById("show-by-subregion-btn");
 
+        var showTotalPopulationBtn = document.getElementById("show-total-population-btn");
+
+        var showMostPopulatedBtn = document.getElementById("show-most-populated-btn");
+
+        var showLeastPopulatedBtn = document.getElementById("show-least-populated-btn");
+
         var outputDiv = document.getElementById("output-div");
 
         // var i = 0 <-- Sier hva vi starter på
@@ -127,11 +133,51 @@
                     }
                 }
             }
-      
+        }
+
+        function showTotalPopulation(){
+            var totalPopulation = 0;
+
+            outputDiv.innerHTML = "";
+            
+            for(var i = 0; i < countriesAmericaArray.length; i++){
+                var country = countriesAmericaArray[i];
+                totalPopulation += country.population;
+            }
+
+            outputDiv.innerHTML = `<p>Totalt antall innbyggere i Amerika: ${totalPopulation}</p>`;
+        }
+
+        function showCountryWithMost(){
+            var countryWithMost = countriesAmericaArray[0];
+
+            outputDiv.innerHTML = "";
+
+            for(var i = 0; i < countriesAmericaArray.length; i++){
+                var country = countriesAmericaArray[i];
+                if(country.population > countryWithMost.population){
+                    countryWithMost = country;
+                }
+            }
+
+            outputDiv.innerHTML = `<div>
+                <h1>${countryWithMost.name.common}</h1>
+                <img src="${countryWithMost.flag.png}">
+                <p>Hovedstad: ${countryWithMost.capital}</p>
+                <p>Subregion: ${countryWithMost.subregion}</p>
+                <p>Antall innbyggere: ${countryWithMost.population}</p>
+                </div>`;
+        }
+
+        function showCountryWithLeast(){
+console.log("heisann")
         }
 
         showAllBtn.onclick = showAllCountries;
         subregionBtn.onclick = showCountriesBySubregion;
+        showTotalPopulationBtn.onclick = showTotalPopulation;
+        showMostPopulatedBtn.onclick = showCountryWithMost;
+        showLeastPopulatedBtn.onclick = showCountryWithLeast;
 
     </script>
     
