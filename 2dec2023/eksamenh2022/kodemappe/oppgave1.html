@@ -170,7 +170,24 @@
         }
 
         function showCountryWithLeast(){
-console.log("heisann")
+            var countryWithLeast = countriesAmericaArray[0];
+
+            outputDiv.innerHTML = "";
+
+            for(var i = 0; i < countriesAmericaArray.length; i++){
+                var country = countriesAmericaArray[i];
+                if(country.population < countryWithLeast.population){
+                    countryWithLeast = country;
+                }
+            }
+
+            outputDiv.innerHTML = `<div>
+                <h1>${countryWithLeast.name.common}</h1>
+                <img src="${countryWithLeast.flag.png}">
+                <p>Hovedstad: ${countryWithLeast.capital}</p>
+                <p>Subregion: ${countryWithLeast.subregion}</p>
+                <p>Antall innbyggere: ${countryWithLeast.population}</p>
+                </div>`;
         }
 
         showAllBtn.onclick = showAllCountries;
